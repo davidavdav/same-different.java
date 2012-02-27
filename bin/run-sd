@@ -1,0 +1,6 @@
+#!/bin/sh
+
+## format: java -jar lib/sd-lang.jar <input> <output> <first> <last>
+## where <first> and <last> indicate lines form input file to be presented in this session.
+java -jar lib/sd-lang.jar bla.in bla.out 0 1 2> run.log
+

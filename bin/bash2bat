@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+## script to convert a bash script to .bat language. 
+
+$skip=0;
+while (<>) {
+    chomp;
+    s/^\s*\#+/rem /;		# comments
+    s/^echo/rem/;
+    s/\$(\w+)/%$1%/g;
+    s/^(\w+)=/set $1=/;
+    s/\//\\/g;			# bloody path names...
+    s/\|\s+tee/>/;		# tee
+    s/exit\s\d+//;		# exit
+    s/sd-lang-v1/sd-lang-v2/g;	# windows paths...
+    s/\\dev\\null/c:\\temp\\null.nul/;
+    s/2>/>/g;
+    $skip=1 if (/^if/);
+    print $_, "\r\n" unless $skip;
+    $skip=0 if (/^fi/);
+}
