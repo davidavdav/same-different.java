@@ -8,8 +8,6 @@ import java.util.*;
 import javax.sound.*;
 import javax.sound.sampled.*;
 
-
-
 public class SDLang extends JFrame implements LineListener 
 {
 	private static final long serialVersionUID = 2L;
@@ -126,7 +124,7 @@ public class SDLang extends JFrame implements LineListener
 		createComponents();
 		loadTask(current);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(800,640);
+		setSize(800,800);
 		setLocationRelativeTo(null);
 		
 		setResizable(true);
